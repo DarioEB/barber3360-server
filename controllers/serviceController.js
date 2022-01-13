@@ -26,13 +26,14 @@ exports.createService = async (req, res, next) => {
 
 exports.getServices = async (req, res, next) => {
     try {
-        const services = await Service.find({status: true}).populate("category");
+        const services = await Service.find().populate("category");
         res.json({services});
     } catch (err) {
         console.log(err);
         res.status(500).json({message: "Hubo un error"});
     }
 }
+
 
 exports.getService = async (req, res, next) => {
     const id = req.params.id;
@@ -48,19 +49,6 @@ exports.getService = async (req, res, next) => {
     }
 }
 
-exports.getServiceEdit = async (req, res, next) => {
-    const id = req.params.id;
-    try {
-        let service = await Service.findById(id);
-        if(!service) {
-            return res.status(401).json({message: "El id de servicio es incorrecto"});
-        }
-        res.json({service});
-    } catch (err) {
-        console.log(err);
-        res.status(500).json({message: "Hubo un error"})
-    }
-}
 
 exports.updateService = async (req, res, next) => {
     const id = req.params.id;

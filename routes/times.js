@@ -12,6 +12,11 @@ router.get(
     timeController.getTimes
 );
 
+router.get(
+    '/time/:id',
+    timeController.getTime
+)
+
 router.post(
     '/',
     timeController.createTime

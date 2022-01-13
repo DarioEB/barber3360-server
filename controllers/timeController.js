@@ -64,6 +64,20 @@ exports.getTimes = async (req, res, next) => {
     }
 }
 
+exports.getTime = async (req, res) => {
+    const id = req.params.id;
+    try {
+        const time = await Time.findById(id);
+        if(!time) {
+            return res.status(401).json({message: "El id ingresado es incorrecto"});
+        }
+        res.json({time});
+    } catch (err) {
+        console.log(err);
+        res.status(500).json({message: "Hubo un error"});
+    }
+}
+
 exports.deleteTime = async (req, res, next) => {
     const id = req.params.id;
     try {

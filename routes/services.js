@@ -15,12 +15,8 @@ router.get(
 router.get(
     '/:id',
     serviceController.getService
-)
-
-router.get(
-    '/edit/:id', 
-    serviceController.getServiceEdit
-)
+);
+ 
 
 router.put(
     '/:id',
