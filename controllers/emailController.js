@@ -16,7 +16,7 @@ exports.shiftVerificationEmail = async (req, res, next) => {
 
         // send mail
         let info = await transporter.sendMail({
-            from: `BARBER TEST <${process.env.EMAIL_USER}>`,
+            from: `BARBER EMAIL TEST <${process.env.EMAIL_USER}>`,
             to: email,
             subject: "Verificación de reservación de turno",
             text: `Hola ${name}! Gracias por elegirnos. Haz click en este link cuando tengas que verificar tu reservación.`
