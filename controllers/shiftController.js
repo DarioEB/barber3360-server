@@ -12,11 +12,10 @@ exports.createShift = async (req, res, next) => {
         services.forEach( async service => {
             updateSelectedService(service);
             updateSelectedCategory(service.category);
-        });
+        });      
 
-        console.log(shift);
-
-        res.json({shift, message: "Turno creado correctamente"})
+        res.json({shift, message: "Turno creado correctamente"});
+        next();
     } catch (err) {
         console.log(err);
         res.status(500).json({ message: "Hubo un error" });
